@@ -22,7 +22,11 @@ action "appleboy/ssh-action@master" {
 action "appleboy/scp-action@master" {
   uses = "appleboy/scp-action@master"
   needs = ["appleboy/ssh-action@master"]
-  secrets = ["KEY", "HOST"]
+  secrets = [
+    "KEY",
+    "HOST",
+    "USERNAME",
+  ]
   env = {
     TARGET = "/home/bitnami"
     SOURCE = "/test.txt"
