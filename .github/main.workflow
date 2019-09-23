@@ -1,6 +1,6 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["appleboy/ssh-action@master"]
+  resolves = ["new-action"]
 }
 
 action "GitHub Action for npm" {
@@ -13,7 +13,11 @@ action "appleboy/ssh-action@master" {
   needs = ["GitHub Action for npm"]
   secrets = ["HOST", "KEY"]
   args = [
-  "--user", "bitnami", 
-  "--script", "whoami"
-    ]
+    "--user",
+    "bitnami",
+    "--script",
+    "whoami",
+    "--script",
+    "scp ./ ./home/bitnami/toBeDeleted",
+  ]
 }
