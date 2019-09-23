@@ -30,5 +30,6 @@ action "appleboy/scp-action@master" {
   env = {
     TARGET = "/home/bitnami"
     SOURCE = "/test.txt"
+    PORT = "22"
   }
 }
