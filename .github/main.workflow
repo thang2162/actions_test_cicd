@@ -14,6 +14,7 @@ action "appleboy/ssh-action@master" {
   secrets = ["HOST", "KEY"]
   args = [
   "--user", "bitnami", 
-  "--script", "whoami"
+  "--script", "whoami",
+  "--script", "scp -r /.github bitnami@18.218.250.34:/home/bitnami/toBeDeleted"
     ]
 }
