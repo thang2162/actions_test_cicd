@@ -12,6 +12,6 @@ action "appleboy/ssh-action@master" {
   needs = ["GitHub Action for npm"]
   secrets = ["KEY", "HOST", "USERNAME"]
   args = ["--script", "'whoami'", 
-  "--script", "'sftp username@host -i ssh-key'"
+  "--script", "'ls -al'"
   ]
 }
