@@ -13,11 +13,8 @@ action "appleboy/ssh-action@master" {
   needs = ["GitHub Action for npm"]
   secrets = ["HOST", "KEY"]
   args = [
-    "--user",
-    "bitnami",
-    "--script",
-    "whoami",
-    "--script",
-    "scp ./ ./home/bitnami/toBeDeleted",
+    "--user", "bitnami",
+    "--script","whoami",
+    "--script", "scp ./ ./home/bitnami/toBeDeleted"
   ]
 }
