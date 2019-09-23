@@ -14,7 +14,6 @@ action "appleboy/ssh-action@master" {
   secrets = ["HOST", "KEY"]
   args = [
   "--user", "bitnami", 
-  "--script", "whoami",
-  "--script", "sftp bitnami@18.218.250.34"  
+  "--script", "whoami"
     ]
 }
