@@ -1,6 +1,6 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["appleboy/ssh-action@master"]
+  resolves = ["appleboy/scp-action@master"]
 }
 
 action "GitHub Action for npm" {
@@ -11,7 +11,20 @@ action "appleboy/ssh-action@master" {
   uses = "appleboy/ssh-action@master"
   needs = ["GitHub Action for npm"]
   secrets = ["KEY", "HOST", "USERNAME"]
-  args = ["--script", "'whoami'", 
-  "--script", "'ls -al'"
+  args = [
+    "--script",
+    "'whoami'",
+    "--script",
+    "'ls -al'",
   ]
+}
+
+action "appleboy/scp-action@master" {
+  uses = "appleboy/scp-action@master"
+  needs = ["appleboy/ssh-action@master"]
+  secrets = ["KEY", "HOST"]
+  env = {
+    TARGET = "/opt/bitnami/apache2/htdocs/github_test"
+    SOURCE = ""
+  }
 }
