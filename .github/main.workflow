@@ -15,9 +15,6 @@ action "appleboy/ssh-action@master" {
   args = [
   "--user", "bitnami", 
   "--script", "whoami",
-  "--script", "sftp bitnami@HOST"
+  "--script", "sftp bitnami@" ${{ secrets.GITHUB_TOKEN }}   
     ]
-  env = [
-     "HOST", {{ secrets.GITHUB_TOKEN }}
-]
 }
