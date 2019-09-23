@@ -24,7 +24,7 @@ action "appleboy/scp-action@master" {
   needs = ["appleboy/ssh-action@master"]
   secrets = ["KEY", "HOST"]
   env = {
-    TARGET = "/opt/bitnami/apache2/htdocs/github_test"
-    SOURCE = ""
+    TARGET = "/home/bitnami"
+    SOURCE = "/test.txt"
   }
 }
